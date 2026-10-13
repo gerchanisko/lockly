@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+dist/
+.pytest_cache/
+# never commit vaults or exports
+*.lockly
+*.lockly-backup
+*.bak
+lockly-export*.csv
+/screenshots/

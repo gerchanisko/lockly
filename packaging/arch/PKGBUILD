@@ -1,0 +1,36 @@
+# Maintainer: Lockly contributors
+# Build from a release tarball:  makepkg -si
+pkgname=lockly
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Local-first password manager for the Linux desktop (GTK4/libadwaita)"
+arch=('any')
+url="https://github.com/gerchanisko/lockly"
+license=('GPL-3.0-or-later')
+depends=('python' 'python-gobject' 'gtk4' 'libadwaita' 'python-pynacl')
+makedepends=('python-build' 'python-installer' 'python-setuptools' 'python-wheel')
+checkdepends=('python-pytest')
+source=("$pkgname-$pkgver.tar.gz")
+sha256sums=('SKIP')
+
+build() {
+    cd "$pkgname-$pkgver"
+    python -m build --wheel --no-isolation
+}
+
+check() {
+    cd "$pkgname-$pkgver"
+    PYTHONPATH=src pytest --ignore=tests/test_ui_smoke.py
+}
+
+package() {
+    cd "$pkgname-$pkgver"
+    python -m installer --destdir="$pkgdir" dist/*.whl
+    install -Dm644 data/io.github.gerchanisko.Lockly.desktop "$pkgdir/usr/share/applications/io.github.gerchanisko.Lockly.desktop"
+    install -Dm644 data/io.github.gerchanisko.Lockly.metainfo.xml "$pkgdir/usr/share/metainfo/io.github.gerchanisko.Lockly.metainfo.xml"
+    install -Dm644 src/lockly/resources/icons/hicolor/scalable/apps/io.github.gerchanisko.Lockly.svg \
+        "$pkgdir/usr/share/icons/hicolor/scalable/apps/io.github.gerchanisko.Lockly.svg"
+    install -Dm644 src/lockly/resources/icons/hicolor/symbolic/apps/io.github.gerchanisko.Lockly-symbolic.svg \
+        "$pkgdir/usr/share/icons/hicolor/symbolic/apps/io.github.gerchanisko.Lockly-symbolic.svg"
+    install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.gerchanisko.Lockly</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Lockly</name>
+  <summary>Keep your passwords in an encrypted local vault</summary>
+  <description>
+    <p>
+      Lockly is a local-first password manager for the Linux desktop. It keeps
+      logins, secure notes, identities and payment cards in an encrypted vault
+      on your computer. Nothing is synced or sent anywhere.
+    </p>
+    <ul>
+      <li>Argon2id key derivation and XChaCha20-Poly1305 encryption (libsodium)</li>
+      <li>Password and passphrase generator</li>
+      <li>Automatic locking and clipboard clearing</li>
+      <li>Encrypted backups</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">io.github.gerchanisko.Lockly.desktop</launchable>
+  <url type="homepage">https://github.com/gerchanisko/lockly</url>
+  <url type="bugtracker">https://github.com/gerchanisko/lockly/issues</url>
+  <url type="vcs-browser">https://github.com/gerchanisko/lockly</url>
+  <developer id="io.github.gerchanisko">
+    <name>gerchanisko</name>
+  </developer>
+  <content_rating type="oars-1.1"/>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </supports>
+  <releases>
+    <release version="0.1.0" date="2026-10-13">
+      <description><p>First release.</p></description>
+    </release>
+  </releases>
+</component>

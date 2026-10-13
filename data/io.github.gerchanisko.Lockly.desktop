@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Lockly
+GenericName=Password Manager
+Comment=Your passwords. Your privacy.
+Exec=lockly
+Icon=io.github.gerchanisko.Lockly
+Terminal=false
+Categories=GTK;GNOME;Utility;Security;
+Keywords=password;passwords;vault;keychain;secret;security;login;
+StartupNotify=true
+DBusActivatable=false
+SingleMainWindow=true

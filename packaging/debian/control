@@ -1,0 +1,17 @@
+Source: lockly
+Section: utils
+Priority: optional
+Maintainer: gerchanisko <236245860+gerchanisko@users.noreply.github.com>
+Build-Depends: debhelper-compat (= 13), dh-python, pybuild-plugin-pyproject,
+ python3-all, python3-setuptools, python3-nacl, python3-pytest
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+
+Package: lockly
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends}, python3-gi, python3-nacl,
+ gir1.2-gtk-4.0, gir1.2-adw-1 (>= 1.6)
+Description: local-first password manager for the Linux desktop
+ Lockly keeps logins, secure notes, identities and payment cards in a vault
+ encrypted with Argon2id and XChaCha20-Poly1305 (libsodium). It works offline
+ and never syncs or uploads anything.

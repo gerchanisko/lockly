@@ -1,0 +1,216 @@
+/* Lockly — application stylesheet
+ *
+ * Built on Libadwaita's named colours (CSS variables, libadwaita >= 1.6).
+ * Dark: charcoal surfaces, soft white text, a single restrained violet-blue
+ * accent. Light mode keeps Adwaita's neutral surfaces with the same accent.
+ */
+
+:root {
+  --accent-bg-color: #5b54d6;
+  --lockly-tile-radius: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent-bg-color: #6a62e0;
+    --window-bg-color: #1c1d20;
+    --window-fg-color: #e9e9ec;
+    --view-bg-color: #18191b;
+    --view-fg-color: #e9e9ec;
+    --headerbar-bg-color: #1f2023;
+    --headerbar-fg-color: #e9e9ec;
+    --headerbar-backdrop-color: #1c1d20;
+    --headerbar-shade-color: rgb(0 0 0 / 36%);
+    --sidebar-bg-color: #202124;
+    --sidebar-fg-color: #e3e3e6;
+    --sidebar-backdrop-color: #1e1f22;
+    --sidebar-shade-color: rgb(0 0 0 / 30%);
+    --secondary-sidebar-bg-color: #1a1b1d;
+    --secondary-sidebar-fg-color: #e9e9ec;
+    --secondary-sidebar-backdrop-color: #19191b;
+    --card-bg-color: rgb(255 255 255 / 4%);
+    --card-fg-color: #e9e9ec;
+    --dialog-bg-color: #232428;
+    --dialog-fg-color: #e9e9ec;
+    --popover-bg-color: #26272b;
+    --popover-fg-color: #e9e9ec;
+    --thumbnail-bg-color: #26272b;
+  }
+}
+
+/* ---- Brand ------------------------------------------------------------ */
+
+.brand-title {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.brand-tagline {
+  font-size: 0.95em;
+}
+
+/* ---- Sidebar --------------------------------------------------------- */
+
+.lockly-sidebar .navigation-sidebar > row {
+  min-height: 34px;
+}
+
+.sidebar-count {
+  font-size: 0.85em;
+  font-feature-settings: "tnum";
+}
+
+.sidebar-section-label {
+  font-size: 0.8em;
+  font-weight: 700;
+  margin: 12px 18px 2px 18px;
+}
+
+.new-entry-button {
+  margin: 6px 12px 6px 12px;
+}
+
+/* ---- Entry list ------------------------------------------------------ */
+
+.entry-list {
+  background: transparent;
+}
+
+.entry-list > row {
+  padding: 7px 10px;
+  margin: 1px 6px;
+  border-radius: 8px;
+}
+
+.entry-row-title {
+  font-weight: 600;
+}
+
+.entry-row-subtitle {
+  font-size: 0.9em;
+}
+
+.type-chip {
+  font-size: 0.78em;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background-color: alpha(currentColor, 0.07);
+}
+
+.search-bar-box {
+  padding: 6px 10px 6px 10px;
+  border-bottom: 1px solid alpha(currentColor, 0.08);
+}
+
+/* ---- Service tiles (letter icons) ------------------------------------- */
+
+.entry-tile {
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: var(--lockly-tile-radius);
+  font-weight: 700;
+  font-size: 0.95em;
+}
+
+.entry-tile.large {
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: 11px;
+  font-size: 1.35em;
+}
+
+.tile-0 { background-color: alpha(#7c86ff, 0.18); color: #6c74e8; }
+.tile-1 { background-color: alpha(#4fb3a9, 0.18); color: #2f9a8f; }
+.tile-2 { background-color: alpha(#d39a4a, 0.18); color: #b47c2c; }
+.tile-3 { background-color: alpha(#c46fae, 0.18); color: #a8528f; }
+.tile-4 { background-color: alpha(#5aa0d8, 0.18); color: #3f86c0; }
+.tile-5 { background-color: alpha(#9a8ad6, 0.18); color: #7d6cc0; }
+.tile-6 { background-color: alpha(#7fae64, 0.18); color: #5f9145; }
+.tile-7 { background-color: alpha(#c97f6b, 0.18); color: #ad6450; }
+
+@media (prefers-color-scheme: dark) {
+  .tile-0 { color: #aab0ff; }
+  .tile-1 { color: #86d3ca; }
+  .tile-2 { color: #e8bd80; }
+  .tile-3 { color: #e3a3d2; }
+  .tile-4 { color: #92c4ec; }
+  .tile-5 { color: #c1b6f0; }
+  .tile-6 { color: #acd194; }
+  .tile-7 { color: #e8ab9b; }
+}
+
+/* ---- Details ----------------------------------------------------------- */
+
+.details-title {
+  font-size: 1.45em;
+  font-weight: 700;
+}
+
+.secret-value {
+  font-family: monospace;
+  letter-spacing: 0.04em;
+}
+
+.tag-pill {
+  font-size: 0.85em;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background-color: alpha(var(--accent-bg-color), 0.16);
+  color: var(--accent-color);
+}
+
+.meta-label {
+  font-size: 0.88em;
+}
+
+.notes-view {
+  padding: 12px 14px;
+}
+
+/* ---- Generator --------------------------------------------------------- */
+
+.generated-password {
+  font-family: monospace;
+  font-size: 1.3em;
+  padding: 16px 14px;
+  letter-spacing: 0.03em;
+}
+
+.strength-bar trough {
+  min-height: 4px;
+}
+
+/* ---- Lock / onboarding screens ---------------------------------------- */
+
+.auth-card {
+  padding: 4px 0;
+}
+
+.auth-heading {
+  font-size: 1.6em;
+  font-weight: 700;
+}
+
+.step-indicator {
+  font-size: 0.85em;
+  font-feature-settings: "tnum";
+}
+
+.info-list label {
+  line-height: 1.35;
+}
+
+.error-text {
+  color: var(--error-color);
+  font-size: 0.9em;
+}
+
+textview.editor-text {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background-color: var(--card-bg-color);
+}
+
+textview.editor-text text {
+  background: transparent;
+}

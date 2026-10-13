@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lockly"
+version = "0.1.0"
+description = "A local-first password manager for the Linux desktop"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "Lockly contributors" }]
+keywords = ["password manager", "gtk", "libadwaita", "security", "linux"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: X11 Applications :: GTK",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security :: Cryptography",
+]
+# PyGObject, GTK 4 and Libadwaita are provided by the distribution
+# (see README). They are not listed here because building PyGObject from PyPI
+# requires the GTK development headers.
+dependencies = ["PyNaCl>=1.5"]
+
+[project.urls]
+Homepage = "https://github.com/gerchanisko/lockly"
+Issues = "https://github.com/gerchanisko/lockly/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+lockly = "lockly.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+lockly = ["resources/*.txt", "resources/*.css", "resources/icons/hicolor/*/*/*.svg"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = [
+    # Raised inside PyGObject on Python 3.14, not by Lockly.
+    "ignore:.*AbstractEventLoopPolicy.*:DeprecationWarning",
+    "ignore:.*get_event_loop_policy.*:DeprecationWarning",
+]

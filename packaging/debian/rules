@@ -1,0 +1,13 @@
+#!/usr/bin/make -f
+export PYBUILD_NAME=lockly
+export PYBUILD_TEST_ARGS=--ignore=tests/test_ui_smoke.py
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+
+override_dh_auto_install:
+	dh_auto_install
+	install -Dm644 data/io.github.gerchanisko.Lockly.desktop debian/lockly/usr/share/applications/io.github.gerchanisko.Lockly.desktop
+	install -Dm644 data/io.github.gerchanisko.Lockly.metainfo.xml debian/lockly/usr/share/metainfo/io.github.gerchanisko.Lockly.metainfo.xml
+	install -Dm644 src/lockly/resources/icons/hicolor/scalable/apps/io.github.gerchanisko.Lockly.svg debian/lockly/usr/share/icons/hicolor/scalable/apps/io.github.gerchanisko.Lockly.svg
+	install -Dm644 src/lockly/resources/icons/hicolor/symbolic/apps/io.github.gerchanisko.Lockly-symbolic.svg debian/lockly/usr/share/icons/hicolor/symbolic/apps/io.github.gerchanisko.Lockly-symbolic.svg
